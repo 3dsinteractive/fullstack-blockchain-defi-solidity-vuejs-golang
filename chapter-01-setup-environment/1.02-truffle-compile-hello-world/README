@@ -1,0 +1,23 @@
+## 1.02 truffle compile hello world
+
+1. Open project
+- Drag 1.02-truffle-compile-hello-world to VSCode
+
+2. Run truffle compile
+$ truffle compile
+
+3. Explain truffle-config.js
+compilers: {
+  solc: {
+    version: "0.8.10",
+    settings: { 
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  }
+}
+
+4. See the result of compile project in /build/contracts/Helloworld.json
+explain abi and bytecode in Helloworld.json

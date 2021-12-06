@@ -1,0 +1,5 @@
+build
+contracts
+migrations
+test
+truffle-config.js

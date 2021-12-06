@@ -1,0 +1,20 @@
+## 
+
+1. Open 
+
+2. Install ganache-cli
+$ yarn global add ganache-cli
+
+3. Install golang
+
+4. Init go module
+$ go mod init github.com/3dsinteractive/fullstackblockchain
+$ go get
+
+5. Run go project
+$ NETWORK=ganache-cli \
+	SERVICE_ID=print \
+	go run .
+
+Ref:
+https://goethereumbook.org/en/
