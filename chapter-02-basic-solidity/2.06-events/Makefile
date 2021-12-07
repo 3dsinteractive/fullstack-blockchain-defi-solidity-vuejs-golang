@@ -12,6 +12,8 @@ yarn-init:
 	yarn add -D typescript
 	yarn add web3
 	yarn add bn.js
+yarn-install:
+	yarn
 truffle-compile:
 	yarn truffle compile
 	yarn run typechain --target=web3-v1 'build/contracts/*.json'
