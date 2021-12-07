@@ -2,10 +2,10 @@
 pragma solidity ^0.8.0;
 
 contract TheContract {
-  // 1. Storage type principle
-  // Storage store on the blockchain
-  // Memory store in memory
-  // Calldata store in stack
+  // 1. Storage types
+  // - Storage store on the blockchain (Most expensive)
+  // - Memory store in memory (Medium cost)
+  // - Calldata store in stack (Less cost)
 
   struct MyStruct {
     bool myBool;
@@ -17,12 +17,12 @@ contract TheContract {
   bytes private _myBytes;
   string private _myString;
 
-  // 2. Variable that has the following type, need to declare with memory type
+  // 2. Variable that has the following type, need to declare with storage types
   // - Mapping
   // - Array
   // - Struct
 
-  // 4. When read from storage mapping we must specify memory type
+  // 3. When read from storage mapping we must specify memory type
   // - Use storage if you want to modify the original storage data
   // - Use memory if you don't want to modify the original storage data
   function setMyMappingUseStorage(uint id, bool value) public {
