@@ -5,31 +5,42 @@
 
 2. Open 1.01-truffle-vscode-remix with VSCode then open terminal
 
-3. Install node, yarn and truffle
+3. Install node
 - Install nvm https://github.com/nvm-sh/nvm
 - Install nodejs using nvm
-- Install yarn https://classic.yarnpkg.com/en/docs/install
-- To make sure that all workshop is the same as in the video, make sure to use node v16.13.1 (LTS)
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+$ nvm install v14.17.6
+$ nvm use v14.17.6
 $ node -v
-v16.13.1
+$ v14.17.6
 
+- To make sure that all workshop is the same as in the video, make sure to use node v14.17.6
+$ node -v
+v14.17.6
+
+4. Install yarn
+- Install yarn https://classic.yarnpkg.com/en/docs/install
+$ npm install --global yarn
+$ yarn -v
+
+5. Install Truffle
 $ yarn global add truffle
 
-4. Init truffle project
+6. Init truffle project
 $ truffle init
 
-5. Explain directory structure of truffle project
+7. Explain directory structure of truffle project
 /contracts
 /migrations
 /test
 truffle-config.js
 
-6. Compile truffle project
+8. Compile truffle project
 $ truffle compile
 
-7. Open remix
+9. Open remix
 - https://remix.ethereum.org/
 
-8. Create file in remix named Helloworld.sol and place content in Helloworld.sol in remix editor
+10. Create file in remix named Helloworld.sol and place content in Helloworld.sol in remix editor
 
-9. Explain how to compile and deploy in remix
+11. Explain how to compile and deploy in remix
