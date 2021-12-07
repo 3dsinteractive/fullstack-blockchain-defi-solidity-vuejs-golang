@@ -54,7 +54,7 @@ describe('The Contract', () => {
     try {
       await theContract.methods.sub(a, toWei('101')).call(actors.acc1Tx)
     } catch (e) {
-      expect(e.toString()).toEqual('c: VM Exception while processing transaction: revert')
+      expect(e.toString()).toEqual('c: VM Exception while processing transaction: revert underflow')
     }
 
     c = await theContract.methods.div(a, b).call(actors.acc1Tx)
