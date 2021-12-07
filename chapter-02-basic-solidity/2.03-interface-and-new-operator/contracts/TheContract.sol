@@ -2,13 +2,14 @@
 pragma solidity ^0.8.0;
 
 interface IGame{
+  // 1. One of benefit of interface is the shared struct
   struct Player {
     address playerAddr;
     uint level;
   }
 
+  // 2. Main benefit of interface is to share function signature across multiple contracts
   function startGame() external returns(bytes32);
-
   function stopGame() external returns(bytes32);
 }
 

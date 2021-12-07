@@ -46,7 +46,6 @@ describe('Game Controller', () => {
   it('can start and stop each game by name', async () => {
     const actors = await testActors(web3)
 
-
     // 1. Get gameC address to send as the parameter for register game
     const gameCAddr = gameC.options.address
     const gameCName = toBytes32('GameC')
