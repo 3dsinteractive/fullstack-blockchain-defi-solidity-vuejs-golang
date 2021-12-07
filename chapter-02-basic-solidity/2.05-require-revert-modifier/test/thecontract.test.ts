@@ -38,7 +38,6 @@ describe('The Contract', () => {
   it('can use modifier', async () => {
     const actors = await testActors(web3)
 
-    // We will talk about wei later
     let amount = toWei('100')
 
     // 1. Mint will throw error and revert if caller is not owner
