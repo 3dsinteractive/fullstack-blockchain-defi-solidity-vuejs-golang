@@ -11,9 +11,10 @@ yarn-init:
 	yarn add -D ts-jest
 	yarn add web3
 	yarn add bn.js
+yarn-install:
+	yarn
 truffle-compile:
 	yarn truffle compile
-	yarn truffle run abigen
 	yarn run typechain --target=web3-v1 'build/contracts/*.json'
 test-js:
 	yarn run jest --testTimeout=60000
