@@ -38,6 +38,11 @@ describe('The Contract', () => {
   it('can calculate percentage', async () => {
     const actors = await testActors(web3)
 
+    // How to calculate 2.5 % of 100
+    // 100 * (2.5 * 100) / (100 * 100)
+    // 100 * 250 / 10000
+    // = 2.5
+
     let res = await theContract.methods.percentOf(toBasis(2.5), toWei('100')).call(actors.acc1Tx)
     expect(fromWei(res)).toEqual('2.5')
   })
