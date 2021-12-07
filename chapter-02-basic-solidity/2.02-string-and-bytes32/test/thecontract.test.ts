@@ -51,6 +51,7 @@ describe('The Contract', () => {
 
     // 1. Test send hello world and get it back by single contract
     const tx = await theContract.methods.setMyString('hello world').send(actors.acc1Tx)
+
     console.log('string gas usage = ', tx.gasUsed)
     let myString = await theContract.methods.getMyString().call()
     expect(myString).toEqual('hello world')
