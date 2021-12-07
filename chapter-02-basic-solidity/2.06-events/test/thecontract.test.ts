@@ -39,9 +39,11 @@ describe('The Contract', () => {
     const actors = await testActors(web3)
 
     const amount = toWei("100")
+    // 1. Send transfer transactions
     await theContract.methods.transfer(actors.acc2Addr, amount).send(actors.acc1Tx)
     await theContract.methods.transfer(actors.acc1Addr, amount).send(actors.acc2Tx)
 
+    // 2. Filter the events
     const events = await theContract.getPastEvents('Transfer', {
       filter: {},
       fromBlock: 0,
