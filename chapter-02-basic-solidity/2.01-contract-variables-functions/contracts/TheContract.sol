@@ -59,7 +59,7 @@ contract TheContract {
   
   // 5. public functions, can be called from outside
   address private _theAddr;
-
+  
   function getTheAddr() public view returns(address) {
     return _theAddr;
   }
