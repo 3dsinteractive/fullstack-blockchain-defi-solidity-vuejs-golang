@@ -23,6 +23,7 @@ func (svc *Reader) Read() error {
 		return utils.LogE(err)
 	}
 
+	// 1. Explain how utils.MyAccountAddress work
 	accountAddr, err := utils.MyAccountAddress(client, cfg.Network())
 	if err != nil {
 		return utils.LogE(err)

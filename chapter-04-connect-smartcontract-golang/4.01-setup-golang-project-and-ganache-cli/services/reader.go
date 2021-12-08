@@ -20,6 +20,7 @@ func NewReader(cfg consts.IConfig) *Reader {
 func (svc *Reader) Read() error {
 	cfg := svc.cfg
 
+	// 1. Explain consts.GetClient that will connect to chain by configuration
 	client, err := consts.GetClient(cfg.Network())
 	if err != nil {
 		return utils.LogE(err)
@@ -30,7 +31,7 @@ func (svc *Reader) Read() error {
 		return utils.LogE(err)
 	}
 
-	utils.Print("block = %d", block)
+	utils.Print("Successfull connect to ganache-cli at block = %d", block)
 
 	return nil
 }

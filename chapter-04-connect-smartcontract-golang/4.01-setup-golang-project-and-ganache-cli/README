@@ -1,11 +1,12 @@
-## 
+## 4.01-setup-golang-project-and-ganache-cli
 
-1. Open 
+1. Open 4.01-setup-golang-project-and-ganache-cli in VSCode
 
 2. Install ganache-cli
 $ yarn global add ganache-cli
 
 3. Install golang
+
 
 4. Init go module
 $ go mod init github.com/3dsinteractive/fullstackblockchain
@@ -15,6 +16,12 @@ $ go get
 $ NETWORK=ganache-cli \
 	SERVICE_ID=print \
 	go run .
+
+This message will show on screen
+Successfull connect to ganache-cli at block = 0
+
+6. Open services/reader.go 
+Explain consts.GetClient that will connect to chain by configuration
 
 Ref:
 https://goethereumbook.org/en/

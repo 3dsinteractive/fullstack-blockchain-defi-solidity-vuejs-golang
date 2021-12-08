@@ -28,6 +28,7 @@ func (svc *Reader) Read() error {
 		return utils.LogE(err)
 	}
 
+	// 1. Create ThePool contract using address from ENV
 	thePool, err := thepool.NewThepool(cfg.AddressOfToken(consts.ThePool), client)
 	if err != nil {
 		return utils.LogE(err)
@@ -41,6 +42,8 @@ func (svc *Reader) Read() error {
 		Context: context.Background(),
 	}
 
+	// 2. Filter all "AddLiquidity" events and print out to console
+	//    in real application this might used to index the data into custom database to use offchain such as SubGraph
 	addLPEvents, err := thePool.FilterAddLiquidity(filter, providers)
 	if err != nil {
 		return utils.LogE(err)

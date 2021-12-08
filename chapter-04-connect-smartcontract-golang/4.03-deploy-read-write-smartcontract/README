@@ -1,14 +1,19 @@
 ## 
 
-1. Open 
+1. Open 4.03-deploy-read-write-smartcontract in VSCode
 
-2. 
+2. Install dependency
 $ yarn global add ganache-cli
 	yarn add -D truffle 
 	yarn add -D @chainsafe/truffle-plugin-abigen 
 	yarn add -D @openzeppelin/contracts
 
-3. 
+3. make sure that truffle-config.js has enable abigen plugin as following JSON
+plugins: [
+	"@chainsafe/truffle-plugin-abigen"
+],
+
+4. Compile contract and generate abigen
 $ yarn truffle compile
 	yarn truffle run abigen
 	if [ ! -d bindings ]; then mkdir bindings ; fi
@@ -23,7 +28,23 @@ $ yarn truffle compile
 $ go mod init github.com/3dsinteractive/fullstackblockchain
 $ go get
 
-5. Run go project
+5. Run go project to deploy contract
+$ NETWORK=ganache-cli \
+	SERVICE_ID=deployer \
+	go run .
+
+6. Get the printed contract address and fill in the following command and run writer to add LP
+$ NETWORK=ganache-cli \
+	SERVICE_ID=writer \
+	TOKENA_ADDR= \
+	TOKENB_ADDR= \
+	THEPOOL_ADDR= \
+	go run .
+
+7. Finally try reading from events
 $ NETWORK=ganache-cli \
 	SERVICE_ID=reader \
+	TOKENA_ADDR= \
+	TOKENB_ADDR= \
+	THEPOOL_ADDR= \
 	go run .

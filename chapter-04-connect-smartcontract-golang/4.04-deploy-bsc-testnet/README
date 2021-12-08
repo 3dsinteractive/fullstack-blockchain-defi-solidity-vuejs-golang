@@ -1,14 +1,19 @@
-## 
+## 4.04-deploy-bsc-testnet
 
-1. Open 
+1. Open 4.04-deploy-bsc-testnet
 
-2. 
+2. Install dependency
 $ yarn global add ganache-cli
 	yarn add -D truffle 
 	yarn add -D @chainsafe/truffle-plugin-abigen 
 	yarn add -D @openzeppelin/contracts
 
-3. 
+3. make sure that truffle-config.js has enable abigen plugin as following JSON
+plugins: [
+	"@chainsafe/truffle-plugin-abigen"
+],
+
+4. Compile contract and generate abigen
 $ yarn truffle compile
 	yarn truffle run abigen
 	if [ ! -d bindings ]; then mkdir bindings ; fi
@@ -23,12 +28,11 @@ $ yarn truffle compile
 $ go mod init github.com/3dsinteractive/fullstackblockchain
 $ go get
 
-5. Run go project
-$ NETWORK=ganache-cli \
-	SERVICE_ID=reader \
+5. Run go project to deploy contract (Notice NETWORK=bsctest)
+$ NETWORK=bsctest \
+	SERVICE_ID=deployer \
 	go run .
 
-my public address: 0x951EC8d446A56D4aC9820dd00705839498f7B6AD
-
-6. Get BNB faucets
+6. If you do not have a BNB just Get BNB faucets here by entering your public wallet address belows
 https://testnet.binance.org/faucet-smart
+Your public wallet address is: 0x951EC8d446A56D4aC9820dd00705839498f7B6AD

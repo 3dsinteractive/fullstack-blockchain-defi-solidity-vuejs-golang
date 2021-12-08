@@ -27,6 +27,7 @@ func (svc *Writer) Write() error {
 		return utils.LogE(err)
 	}
 
+	// 1. Create TokenA contrat and approve 1ml tokens
 	tokenA, err := tokena.NewTokena(cfg.AddressOfToken(consts.TokenA), client)
 	if err != nil {
 		return utils.LogE(err)
@@ -38,6 +39,7 @@ func (svc *Writer) Write() error {
 		return utils.LogE(err)
 	}
 
+	// 2. Create tokenB contract and approve 10ml tokens
 	tokenB, err := tokenb.NewTokenb(cfg.AddressOfToken(consts.TokenB), client)
 	if err != nil {
 		return utils.LogE(err)
@@ -49,6 +51,7 @@ func (svc *Writer) Write() error {
 		return utils.LogE(err)
 	}
 
+	// 3. Create the pool contract and AddLiquidity for TokenA and TokenB to set price
 	thePool, err := thepool.NewThepool(cfg.AddressOfToken(consts.ThePool), client)
 	if err != nil {
 		return utils.LogE(err)

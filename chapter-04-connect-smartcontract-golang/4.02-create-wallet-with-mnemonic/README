@@ -1,6 +1,6 @@
-## 
+## 4.02-create-wallet-with-mnemonic
 
-1. Open 
+1. Open 4.02-create-wallet-with-mnemonic dir with VSCode
 
 2. Init go module
 $ go mod init github.com/3dsinteractive/fullstackblockchain
@@ -10,6 +10,9 @@ $ go get
 $ NETWORK=ganache-cli \
 	SERVICE_ID=print \
 	go run .
+
+4. Go to services/reader.go
+Explain how utils.MyAccountAddress work
 
 Ref:
 https://goethereumbook.org/en/
