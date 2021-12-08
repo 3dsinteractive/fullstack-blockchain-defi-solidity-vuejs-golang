@@ -45,6 +45,7 @@ export default class Swap extends BaseForm<SwapForm> {
   checkAllowance: () => void
   updateQuotePrice: () => void
 
+  // 1. _debounce checkAllowance and updateQuotePrice for 300ms to not flood the RPC call
   created() {
     this.checkAllowance = _debounce(() => {
       this._onCheckAllowance()
@@ -61,6 +62,14 @@ export default class Swap extends BaseForm<SwapForm> {
     this.walletLoader(switchChain, switchChain).call({ reconnect: true })
   }
 
+  // 2. Watch form changed, to update amount of tokenB by tokenA input
+  @Watch('form', { deep: true })
+  onFormUpdated() {
+    this.checkAllowance()
+    this.updateQuotePrice()
+  }
+  
+  // 3. UpdateQuotePrice will call amountBByA of ThePool contract to get the number of TokenB by input TokenA
   async _updateQuotePrice() {
     const form = this.form
     if (parseFloat(form.fromAmount) <= 0) {
@@ -79,6 +88,8 @@ export default class Swap extends BaseForm<SwapForm> {
     this.formRepo.updateAttr(this.form_name, 'toAmount', `${amountB}`)
   }
 
+  // 4. onCheckAllowance will call allowanceOf of TokenA by ThePool 
+  //    If user has given enough allowance the button will change to Swap, otherwise button Approve will shown
   async _onCheckAllowance() {
     const form = this.form
     if (!form.fromToken || form.fromToken.length == 0) {
@@ -98,6 +109,8 @@ export default class Swap extends BaseForm<SwapForm> {
     this.isApproved = allowance >= toWei(form.fromAmount)
   }
 
+  // 5. Submit will call approveTokenA if allowance is not enough
+  //    and it will call swapAForB if allowance is enough
   onSubmit(value: SwapForm) {
     if (!this.isLogin) {
       this.showLoginDialog()
@@ -114,12 +127,6 @@ export default class Swap extends BaseForm<SwapForm> {
 
   onTransform(value: SwapForm) {
     return value
-  }
-
-  @Watch('form', { deep: true })
-  onFormUpdated() {
-    this.checkAllowance()
-    this.updateQuotePrice()
   }
 
   beginTransaction() {
@@ -169,6 +176,7 @@ export default class Swap extends BaseForm<SwapForm> {
         props: {
           name: 'toAmount',
           label: 'To',
+          disabled: true,
           rules: [RuleHelper.required, RuleHelper.num],
         }
       },

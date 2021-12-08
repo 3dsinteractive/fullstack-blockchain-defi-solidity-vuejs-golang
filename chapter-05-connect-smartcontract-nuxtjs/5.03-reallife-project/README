@@ -1,3 +1,34 @@
+## 5.02-login-with-metamask
 
+1. Open 5.02-login-with-metamask in VSCode
+$ nvm use v16.13.1
+$ node -v
+v16.13.1
 
-install vue develoepr toolbar plugin
+2. Make sure you have Metamask install as a plugin in your browser
+
+3. Add BSCTest Network using the information belows (If not added yet)
+Name: BSC Testnet
+RPC Endpoints: (choose one)
+https://data-seed-prebsc-1-s1.binance.org:8545/
+https://data-seed-prebsc-2-s1.binance.org:8545/
+https://data-seed-prebsc-1-s2.binance.org:8545/
+ChainId: 97
+Native Token: BNB
+Block Explorer: https://testnet.bscscan.com/
+
+4. Run yarn to install dependency
+$ yarn
+
+5. Run truffle compile
+$ truffle complie
+
+6. Run typechain to gen typescript version of contract
+$ yarn run typechain --target=web3-v1 'build/contracts/*.json'
+
+7. Run yarn dev
+$ yarn dev
+
+8. Play around the UI
+
+9. Explain sourcecode in pages/index.vue
