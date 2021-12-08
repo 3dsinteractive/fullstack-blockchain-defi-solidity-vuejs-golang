@@ -1,6 +1,10 @@
 ## 3.01-erc20-fungible-token
 
 1. Open 3.01-erc20-fungible-token with VSCode
+Type the following command into console to use node version 16.13.1
+$ nvm use v16.13.1
+$ node -v
+v16.13.1
 
 2. Run truffle compile
 $ truffle complie
@@ -19,3 +23,6 @@ yarn run jest --testTimeout=60000
 yarn run jest --testTimeout=60000
 
 7. Explain test cases
+
+Ref: ERC20 document openzeppelin interface is here
+https://docs.openzeppelin.com/contracts/2.x/erc20

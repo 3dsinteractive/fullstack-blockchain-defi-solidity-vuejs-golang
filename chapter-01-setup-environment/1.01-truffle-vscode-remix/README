@@ -5,7 +5,7 @@
 
 2. Open 1.01-truffle-vscode-remix with VSCode then open terminal
 
-3. Install node
+3. Install node via nvm
 - Install nvm https://github.com/nvm-sh/nvm
 - Install nodejs using nvm
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash

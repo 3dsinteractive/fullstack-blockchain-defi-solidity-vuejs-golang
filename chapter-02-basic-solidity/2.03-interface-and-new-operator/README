@@ -1,6 +1,10 @@
 ## 2.03-interface-and-new-operator
 
 1. Open 2.03-interface-and-new-operator in VSCode
+Type the following command into console to use node version 16.13.1
+$ nvm use v16.13.1
+$ node -v
+v16.13.1
 
 2. Run truffle compile
 $ truffle complie

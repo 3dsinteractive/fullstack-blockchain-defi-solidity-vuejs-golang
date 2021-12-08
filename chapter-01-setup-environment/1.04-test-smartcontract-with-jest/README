@@ -1,25 +1,15 @@
 ## 1.04-test-smartcontract-with-jest
 
 1. Open 1.04-test-smartcontract-with-jest in VSCode
+$ nvm use v16.13.1
+$ node -v
+v16.13.1
 
 2. Run truffle compile
 $ truffle complie
 
 3. Run yarn to install dependency from package.json
 $ yarn
-
-* Original yarn add are the following
-# yarn add -D truffle 
-# yarn add -D typechain
-# yarn add -D @typechain/web3-v1
-# yarn add -D jest @types/jest
-# yarn add -D @types/web3
-# yarn add -D @types/node
-# yarn add -D ts-node
-# yarn add -D ts-jest
-# yarn add -D typescript
-# yarn add web3
-# yarn add bn.js
 
 4. Run typechain to gen typescript version of contract
 yarn truffle compile
