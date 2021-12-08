@@ -75,6 +75,7 @@ export default class Swap extends BaseForm<SwapForm> {
     let amountB = parseFloat(fromWei(res))
     const slippage = 0.02;
     amountB = amountB * (1-slippage)
+    amountB = Math.floor(amountB)
     this.formRepo.updateAttr(this.form_name, 'toAmount', `${amountB}`)
   }
 

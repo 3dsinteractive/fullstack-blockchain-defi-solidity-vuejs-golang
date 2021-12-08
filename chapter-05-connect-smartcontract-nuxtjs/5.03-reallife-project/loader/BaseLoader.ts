@@ -27,11 +27,12 @@ export class BaseLoader<T = any>  {
     return `${this.stateKey}_call`
   }
 
+  get callItem(): T {
+    return _get(this.getStateByKey(this.callStateKey), 'data', {})
+  }
+
   get callItems(): T[] {
-    return (
-      this.options().mockCallItems ??
-      _get(this.getStateByKey(this.callStateKey), 'items', [])
-    )
+    return _get(this.getStateByKey(this.callStateKey), 'items', [])
   }
 
   get callStatus() {
