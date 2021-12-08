@@ -14,7 +14,7 @@ yarn-init:
 	yarn add -D @openzeppelin/contracts@4.4.0
 	yarn -D add vue-property-decorator vue-class-component @nuxt/typescript-build @nuxt/types @types/lodash
 	yarn -D add @babel/eslint-parser eslint eslint-plugin-nuxt eslint-plugin-vue
-	yarn -D add node-sass@4.14.1
+	yarn -D add node-sass@6.0.1
 	yarn -D add @nuxtjs/vuetify
 	yarn add web3
 	yarn add bn.js
