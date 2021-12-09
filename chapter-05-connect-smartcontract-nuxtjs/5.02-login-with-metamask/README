@@ -23,7 +23,7 @@ Block Explorer: https://testnet.bscscan.com/
 $ yarn
 
 5. Run truffle compile
-$ truffle complie
+$ truffle compile
 
 6. Run typechain to gen typescript version of contract
 $ yarn run typechain --target=web3-v1 'build/contracts/*.json'
