@@ -1,7 +1,11 @@
 ## 1.02 truffle compile hello world
 
-1. Open project
-- Drag 1.02-truffle-compile-hello-world to VSCode
+1. Open 1.02-truffle-compile-hello-world to VSCode
+$ source ~/.bash_profile
+nvm use v16.13.1
+node -v
+
+v16.13.1
 
 2. Run truffle compile
 $ truffle compile

@@ -1,8 +1,10 @@
 ## 5.01-install-nuxtjs
 
 1. Open 5.01-install-nuxtjs in VSCode
-$ nvm use v16.13.1
-$ node -v
+$ source ~/.bash_profile
+nvm use v16.13.1
+node -v
+
 v16.13.1
 
 2. Run yarn to install dependency

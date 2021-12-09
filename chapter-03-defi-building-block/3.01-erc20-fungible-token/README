@@ -2,8 +2,10 @@
 
 1. Open 3.01-erc20-fungible-token with VSCode
 Type the following command into console to use node version 16.13.1
-$ nvm use v16.13.1
-$ node -v
+$ source ~/.bash_profile
+nvm use v16.13.1
+node -v
+
 v16.13.1
 
 2. Run truffle compile
