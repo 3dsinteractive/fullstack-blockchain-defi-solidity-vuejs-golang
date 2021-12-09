@@ -14,7 +14,6 @@ $ yarn
 $ truffle complie
 
 4. Run typechain to gen typescript version of contract
-yarn truffle compile
 yarn run typechain --target=web3-v1 'build/contracts/*.json'
 
 5. Run test
