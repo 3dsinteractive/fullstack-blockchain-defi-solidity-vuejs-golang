@@ -19,7 +19,8 @@ ChainId: 97
 Native Token: BNB
 Block Explorer: https://testnet.bscscan.com/
 
-4. Run yarn to install dependency
+4. Run yarn to install dependency, 
+   We need to run yarn before truffle compile because we want @openzeppellin contracts
 $ yarn
 
 5. Run truffle compile

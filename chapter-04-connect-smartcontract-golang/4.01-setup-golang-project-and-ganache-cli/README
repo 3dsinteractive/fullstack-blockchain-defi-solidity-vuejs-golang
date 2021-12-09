@@ -7,7 +7,6 @@ $ yarn global add ganache-cli
 
 3. Install golang
 
-
 4. Init go module
 $ go mod init github.com/3dsinteractive/fullstackblockchain
 $ go get
