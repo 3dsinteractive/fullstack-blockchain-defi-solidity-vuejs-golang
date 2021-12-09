@@ -57,9 +57,9 @@ contract TheContract {
     _myPercent = myPercent;
   }
   
-  // 5. public functions, can be called from outside
   address private _theAddr;
   
+  // 5. public functions, can be called from outside
   function getTheAddr() public view returns(address) {
     return _theAddr;
   }
@@ -168,13 +168,13 @@ contract TheContract {
     return _voteStatuses[voterAddr];
   }
 
-  // 13. Simple Struct
   enum MemberLevel {
     Normal,
     VIP,
     SuperVIP
   }
 
+  // 13. Simple Struct
   struct Member {
     address walletAddr;
     uint point;
