@@ -19,7 +19,7 @@ contract TheContract {
 
   // 2. Variable that has the following type, need to declare with storage types
   // - Mapping
-  // - Array
+  // - Array and string
   // - Struct
 
   // 3. When read from storage mapping we must specify memory type
