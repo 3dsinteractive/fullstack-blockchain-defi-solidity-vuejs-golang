@@ -11,6 +11,7 @@ contract TheContract {
     bool myBool;
   }
 
+  // Variables declare at this scope is in storage
   mapping(uint => MyStruct) private _myMappings;
   MyStruct[] private _myArrays;
   MyStruct private _myStruct;
