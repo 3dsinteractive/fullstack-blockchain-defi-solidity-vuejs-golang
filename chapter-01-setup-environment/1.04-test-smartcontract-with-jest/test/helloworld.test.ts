@@ -28,15 +28,12 @@ let helloworld: Helloworld
 // 2. Before each test case, deploy contract
 beforeEach(async () => {
 
-  // There are 4 actors in our test scenario
-  // - owner <- we will use owner to deploy the contract
-  // - account1 
-  // - account2
-  // - platform
   const actors = await testActors(web3)
 
-  // The contract is deployed using ABI and bytecode provide by the build/contracts/Helloworld.json 
-  // compiled by "truffle compile"
+  // 2.1 The contract is deployed using ABI and bytecode provide by 
+  // the build/contracts/Helloworld.json compiled by "truffle compile"
+  // the helloworld: Helloworld type is generate by typechain
+  // https://github.com/dethcrypto/TypeChain
 
   helloworld = new web3.eth.Contract(HelloworldContract.abi as AbiItem[]) as any as Helloworld
   helloworld = await helloworld.deploy({data: HelloworldContract.bytecode, arguments:[]})
