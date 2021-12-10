@@ -11,13 +11,7 @@ v16.13.1
    We need to run yarn before truffle compile because we want @openzeppellin contracts
 $ yarn
 
-3. Run truffle compile
-$ truffle compile
-
-4. Run typechain to gen typescript version of contract
-$ yarn run typechain --target=web3-v1 'build/contracts/*.json'
-
-5. Run yarn dev
+3. Run yarn dev
 $ yarn dev
 
-6. Explain sourcecode in pages/index.vue
+4. Explain sourcecode in pages/index.vue
