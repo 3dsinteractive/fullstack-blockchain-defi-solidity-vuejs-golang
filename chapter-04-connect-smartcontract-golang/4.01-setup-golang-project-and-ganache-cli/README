@@ -11,9 +11,12 @@ $ yarn global add ganache-cli
 $ go mod init github.com/3dsinteractive/fullstackblockchain
 $ go get
 
+5. Start Ganache
+$ ganache-cli --verbose --mnemonic "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
+
 5. Run go project
 $ NETWORK=ganache-cli \
-	SERVICE_ID=print \
+	SERVICE_ID=reader \
 	go run .
 
 This message will show on screen

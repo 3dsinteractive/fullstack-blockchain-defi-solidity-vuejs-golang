@@ -6,12 +6,15 @@
 $ go mod init github.com/3dsinteractive/fullstackblockchain
 $ go get
 
-3. Run go project
+3. Start Ganache
+$ ganache-cli --verbose --mnemonic "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
+
+4. Run go project
 $ NETWORK=ganache-cli \
-	SERVICE_ID=print \
+	SERVICE_ID=reader \
 	go run .
 
-4. Go to services/reader.go
+5. Go to services/reader.go
 Explain how utils.MyAccountAddress work
 
 Ref:

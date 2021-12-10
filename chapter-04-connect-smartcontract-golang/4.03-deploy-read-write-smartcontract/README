@@ -24,16 +24,19 @@ $ yarn truffle compile
 	if [ ! -d bindings/thepool ]; then mkdir bindings/thepool ; fi
 	abigen --abi=abigenBindings/abi/ThePool.abi --bin=abigenBindings/bin/ThePool.bin --pkg thepool --out bindings/thepool/bindings.go
 
-4. Init go module
+5. Init go module
 $ go mod init github.com/3dsinteractive/fullstackblockchain
 $ go get
 
-5. Run go project to deploy contract
+6. Start Ganache
+$ ganache-cli --verbose --mnemonic "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
+
+7. Run go project to deploy contract
 $ NETWORK=ganache-cli \
 	SERVICE_ID=deployer \
 	go run .
 
-6. Get the printed contract address and fill in the following command and run writer to add LP
+8. Get the printed contract address and fill in the following command and run writer to add LP
 $ NETWORK=ganache-cli \
 	SERVICE_ID=writer \
 	TOKENA_ADDR= \
@@ -41,7 +44,7 @@ $ NETWORK=ganache-cli \
 	THEPOOL_ADDR= \
 	go run .
 
-7. Finally try reading from events
+9. Finally try reading from events
 $ NETWORK=ganache-cli \
 	SERVICE_ID=reader \
 	TOKENA_ADDR= \
