@@ -19,18 +19,21 @@ ChainId: 97
 Native Token: BNB
 Block Explorer: https://testnet.bscscan.com/
 
-4. Run yarn to install dependency
+4. Get some of BNB faucets here for your address here
+https://testnet.binance.org/faucet-smart
+
+5. Run yarn to install dependency
 $ yarn
 
-5. Run truffle compile
+6. Run truffle compile
 $ truffle compile
 
-6. Run typechain to gen typescript version of contract
+7. Run typechain to gen typescript version of contract
 $ yarn run typechain --target=web3-v1 'build/contracts/*.json'
 
-7. Run yarn dev
+8. Run yarn dev
 $ yarn dev
 
-8. Play around the UI
+9. Play around the UI
 
-9. Explain sourcecode in pages/index.vue
+10. Explain sourcecode in pages/index.vue
