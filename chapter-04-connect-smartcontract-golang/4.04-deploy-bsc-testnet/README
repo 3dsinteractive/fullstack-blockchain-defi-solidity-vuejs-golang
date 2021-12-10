@@ -3,10 +3,7 @@
 1. Open 4.04-deploy-bsc-testnet
 
 2. Install dependency
-$ yarn global add ganache-cli
-	yarn add -D truffle 
-	yarn add -D @chainsafe/truffle-plugin-abigen 
-	yarn add -D @openzeppelin/contracts
+$ yarn
 
 3. make sure that truffle-config.js has enable abigen plugin as following JSON
 plugins: [

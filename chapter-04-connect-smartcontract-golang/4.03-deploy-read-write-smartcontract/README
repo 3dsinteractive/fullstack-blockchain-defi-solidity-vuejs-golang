@@ -1,12 +1,9 @@
-## 
+## 4.03-deploy-read-write-smartcontract
 
 1. Open 4.03-deploy-read-write-smartcontract in VSCode
 
 2. Install dependency
-$ yarn global add ganache-cli
-	yarn add -D truffle 
-	yarn add -D @chainsafe/truffle-plugin-abigen 
-	yarn add -D @openzeppelin/contracts
+$ yarn
 
 3. make sure that truffle-config.js has enable abigen plugin as following JSON
 plugins: [
@@ -29,7 +26,7 @@ $ go mod init github.com/3dsinteractive/fullstackblockchain
 $ go get
 
 6. Start Ganache
-$ ganache-cli --verbose --mnemonic "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
+$ ganache-cli
 
 7. Run go project to deploy contract
 $ NETWORK=ganache-cli \
@@ -68,3 +65,6 @@ $ NETWORK=ganache-cli \
 	go run .
 
 9.1 Explain writer file in services/writer.go
+
+10. Cleanup
+Kill ganache-cli using Ctrl+C
