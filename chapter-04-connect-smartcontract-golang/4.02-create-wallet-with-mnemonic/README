@@ -12,6 +12,9 @@ $ ganache-cli --verbose --mnemonic "unveil wave nuclear maple strike prepare lux
 4. Run go project
 $ NETWORK=ganache-cli \
 	SERVICE_ID=reader \
+	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCTEST="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCMAIN="" \
 	go run .
 
 5. Go to services/reader.go
