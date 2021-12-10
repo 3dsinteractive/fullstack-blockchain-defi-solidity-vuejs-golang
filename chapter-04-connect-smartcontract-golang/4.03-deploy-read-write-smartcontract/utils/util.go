@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"math/big"
+	"os"
 	"runtime"
 
 	"github.com/3dsinteractive/fullstackblockchain/consts"
@@ -164,11 +165,13 @@ func MySendOpt(client *ethclient.Client, network consts.Network) *bind.TransactO
 }
 
 func MyWallet(network consts.Network) (*hdwallet.Wallet, error) {
-	mnemonic := "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
+	mnemonic := ""
 	if network == consts.GanacheCLI {
-		mnemonic = "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
+		mnemonic = os.Getenv("SEED_GANACHE")
 	} else if network == consts.BSCTest {
-		mnemonic = "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
+		mnemonic = os.Getenv("SEED_BSCTEST")
+	} else if network == consts.BSCMain {
+		mnemonic = os.Getenv("SEED_BSCMAIN")
 	}
 	wallet, err := hdwallet.NewFromMnemonic(mnemonic)
 	if err != nil {

@@ -31,6 +31,9 @@ $ go get
 5. Run go project to deploy contract (Notice NETWORK=bsctest)
 $ NETWORK=bsctest \
 	SERVICE_ID=deployer \
+	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCTEST="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCMAIN="" \
 	go run .
 
 6. If you do not have a BNB just Get BNB faucets here by entering your public wallet address belows

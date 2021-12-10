@@ -34,6 +34,9 @@ $ ganache-cli --verbose --mnemonic "unveil wave nuclear maple strike prepare lux
 7. Run go project to deploy contract
 $ NETWORK=ganache-cli \
 	SERVICE_ID=deployer \
+	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCTEST="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCMAIN="" \
 	go run .
 
 7.1 Explain deploy file in services/deployer.go
@@ -42,6 +45,9 @@ $ NETWORK=ganache-cli \
 	 and run writer to add LP
 $ NETWORK=ganache-cli \
 	SERVICE_ID=writer \
+	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCTEST="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCMAIN="" \
 	TOKENA_ADDR= \
 	TOKENB_ADDR= \
 	THEPOOL_ADDR= \
@@ -53,6 +59,9 @@ $ NETWORK=ganache-cli \
 	Finally try reading from events
 $ NETWORK=ganache-cli \
 	SERVICE_ID=reader \
+	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCTEST="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCMAIN="" \
 	TOKENA_ADDR= \
 	TOKENB_ADDR= \
 	THEPOOL_ADDR= \

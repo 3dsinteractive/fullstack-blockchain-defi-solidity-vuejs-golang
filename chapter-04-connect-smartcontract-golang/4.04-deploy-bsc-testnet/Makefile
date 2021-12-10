@@ -22,6 +22,9 @@ go-run:
 go-run-reader:
 	NETWORK=bsctest \
 	SERVICE_ID=reader \
+	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCTEST="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCMAIN="" \
 	TOKENA_ADDR= \
 	TOKENB_ADDR= \
 	THEPOOL_ADDR= \
@@ -29,6 +32,9 @@ go-run-reader:
 go-run-writer:
 	NETWORK=bsctest \
 	SERVICE_ID=writer \
+	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCTEST="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCMAIN="" \
 	TOKENA_ADDR= \
 	TOKENB_ADDR= \
 	THEPOOL_ADDR= \
@@ -36,6 +42,9 @@ go-run-writer:
 go-run-deployer:
 	NETWORK=bsctest \
 	SERVICE_ID=deployer \
+	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCTEST="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
+	SEED_BSCMAIN="" \
 	go run .
 truffle-compile:
 	yarn truffle compile
