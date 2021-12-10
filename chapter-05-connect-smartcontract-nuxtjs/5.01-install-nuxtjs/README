@@ -15,3 +15,5 @@ $ yarn
 $ yarn dev
 
 4. Explain sourcecode in pages/index.vue
+
+5. Clean up by Ctrl+C to stop nuxt dev server
