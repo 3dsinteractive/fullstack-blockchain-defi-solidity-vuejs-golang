@@ -46,7 +46,7 @@ beforeEach(async () => {
 })
 
 describe('My Token', () => {
-  it('can', async () => {
+  it('can mint MyToken backed by asset', async () => {
     const actors = await testActors(web3)
 
     const myTokenAddr = myToken.options.address
