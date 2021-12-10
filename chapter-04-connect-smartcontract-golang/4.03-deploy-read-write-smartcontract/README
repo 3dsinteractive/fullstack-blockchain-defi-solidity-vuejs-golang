@@ -50,7 +50,7 @@ $ NETWORK=ganache-cli \
 	THEPOOL_ADDR= \
 	go run .
 
-8.1 Explain reader file in services/reader.go
+8.1 Explain writer file in services/writer.go
 
 9. Get the printed contract address and fill in the following command,
 	Finally try reading from events
@@ -64,7 +64,7 @@ $ NETWORK=ganache-cli \
 	THEPOOL_ADDR= \
 	go run .
 
-9.1 Explain writer file in services/writer.go
+9.1 Explain reader file in services/reader.go
 
 10. Cleanup
 Kill ganache-cli using Ctrl+C
