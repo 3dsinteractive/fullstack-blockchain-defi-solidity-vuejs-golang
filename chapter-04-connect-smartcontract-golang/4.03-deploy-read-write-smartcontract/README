@@ -36,7 +36,10 @@ $ NETWORK=ganache-cli \
 	SERVICE_ID=deployer \
 	go run .
 
-8. Get the printed contract address and fill in the following command and run writer to add LP
+7.1 Explain deploy file in services/deployer.go
+
+8. Get the printed contract address and fill in the following command 
+	 and run writer to add LP
 $ NETWORK=ganache-cli \
 	SERVICE_ID=writer \
 	TOKENA_ADDR= \
@@ -44,10 +47,15 @@ $ NETWORK=ganache-cli \
 	THEPOOL_ADDR= \
 	go run .
 
-9. Finally try reading from events
+8.1 Explain reader file in services/reader.go
+
+9. Get the printed contract address and fill in the following command,
+	Finally try reading from events
 $ NETWORK=ganache-cli \
 	SERVICE_ID=reader \
 	TOKENA_ADDR= \
 	TOKENB_ADDR= \
 	THEPOOL_ADDR= \
 	go run .
+
+9.1 Explain writer file in services/writer.go
