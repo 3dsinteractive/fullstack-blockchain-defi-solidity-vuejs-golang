@@ -9,7 +9,7 @@ $ go mod init github.com/3dsinteractive/fullstackblockchain
 3. Start Ganache
 $ ganache-cli --mnemonic "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
 
-4. Run go project
+4. Run go project (In New Terminal)
 $ NETWORK=ganache-cli \
 	SERVICE_ID=reader \
 	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
