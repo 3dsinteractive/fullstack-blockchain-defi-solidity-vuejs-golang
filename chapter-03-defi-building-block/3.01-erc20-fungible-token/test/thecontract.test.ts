@@ -73,7 +73,7 @@ describe('The Contract', () => {
     const theContractAddr = theContract.options.address
     await myToken.methods.approve(theContractAddr, amount).send(actors.acc1Tx)
     await theContract.methods.deposit(amount).send(actors.acc1Tx)
-    // Check balance of theContract for NToken
+    // Check balance of theContract for MyToken
     let balAcc1 = await myToken.methods.balanceOf(actors.acc1Addr).call()
     let balContract = await myToken.methods.balanceOf(theContractAddr).call()
     expect(fromWei(balAcc1)).toEqual('900')
