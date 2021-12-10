@@ -9,7 +9,7 @@ contract TheLand is Ownable, ERC721URIStorage{
   constructor() ERC721('TheLand', 'TheLand') {
   }
 
-  function mint(address toAddr, uint landId, string memory landURI) public {
+  function mint(address toAddr, uint landId, string memory landURI) public onlyOwner {
     require(!_exists(landId), 'landId is exists');
     _mint(toAddr, landId);
     _setTokenURI(landId, landURI);
