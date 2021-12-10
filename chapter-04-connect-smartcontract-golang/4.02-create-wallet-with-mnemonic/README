@@ -4,7 +4,7 @@
 
 2. Init go module
 $ go mod init github.com/3dsinteractive/fullstackblockchain
-$ go get
+  go get
 
 3. Start Ganache
 $ ganache-cli
