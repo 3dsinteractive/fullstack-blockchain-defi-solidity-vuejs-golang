@@ -5,14 +5,21 @@
 2. Install dependency
 $ yarn
 
-3. make sure that truffle-config.js has enable abigen plugin as following JSON
+3. Download getth & tools binary for your platform at this URL
+https://geth.ethereum.org/downloads
+Extract files and copy abigen to the current project directory
+OR if you cannot download, just copy from tools/abigen-allplatforms
+and choose from your platform to current project directory
+
+4. make sure that truffle-config.js has enable abigen plugin as following JSON
 plugins: [
 	"@chainsafe/truffle-plugin-abigen"
 ],
 
-4. Compile contract and generate abigen
-$ yarn truffle compile
-	yarn truffle run abigen
+5. Compile contract and generate abigen
+$ truffle compile
+	if [ ! -d abigenBindings ]; then mkdir abigenBindings ; fi
+	truffle run abigen
 	if [ ! -d bindings ]; then mkdir bindings ; fi
 	if [ ! -d bindings/tokena ]; then mkdir bindings/tokena ; fi
 	abigen --abi=abigenBindings/abi/TokenA.abi --bin=abigenBindings/bin/TokenA.bin --pkg tokena --out bindings/tokena/bindings.go
@@ -21,14 +28,14 @@ $ yarn truffle compile
 	if [ ! -d bindings/thepool ]; then mkdir bindings/thepool ; fi
 	abigen --abi=abigenBindings/abi/ThePool.abi --bin=abigenBindings/bin/ThePool.bin --pkg thepool --out bindings/thepool/bindings.go
 
-5. Init go module
+6. Init go module
 $ go mod init github.com/3dsinteractive/fullstackblockchain
   go get
 
-6. Start Ganache
+7. Start Ganache
 $ ganache-cli --mnemonic "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
 
-7. Run go project to deploy contract
+8. Run go project to deploy contract
 $ NETWORK=ganache-cli \
 	SERVICE_ID=deployer \
 	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
@@ -36,9 +43,9 @@ $ NETWORK=ganache-cli \
 	SEED_BSCMAIN="" \
 	go run .
 
-7.1 Explain deploy file in services/deployer.go
+8.1 Explain deploy file in services/deployer.go
 
-8. Get the printed contract address and fill in the following command 
+9. Get the printed contract address and fill in the following command 
 	 and run writer to add LP
 $ NETWORK=ganache-cli \
 	SERVICE_ID=writer \
@@ -50,9 +57,9 @@ $ NETWORK=ganache-cli \
 	THEPOOL_ADDR= \
 	go run .
 
-8.1 Explain writer file in services/writer.go
+9.1 Explain writer file in services/writer.go
 
-9. Get the printed contract address and fill in the following command,
+10. Get the printed contract address and fill in the following command,
 	Finally try reading from events
 $ NETWORK=ganache-cli \
 	SERVICE_ID=reader \
@@ -64,7 +71,7 @@ $ NETWORK=ganache-cli \
 	THEPOOL_ADDR= \
 	go run .
 
-9.1 Explain reader file in services/reader.go
+10.1 Explain reader file in services/reader.go
 
-10. Cleanup
+11. Cleanup
 Kill ganache-cli using Ctrl+C

@@ -5,27 +5,34 @@
 2. Install dependency
 $ yarn
 
-3. make sure that truffle-config.js has enable abigen plugin as following JSON
+3. Download getth & tools binary for your platform at this URL
+https://geth.ethereum.org/downloads
+Extract files and copy abigen to the current project directory
+OR if you cannot download, just copy from tools/abigen-allplatforms
+and choose from your platform to current project directory
+
+4. make sure that truffle-config.js has enable abigen plugin as following JSON
 plugins: [
 	"@chainsafe/truffle-plugin-abigen"
 ],
 
-4. Compile contract and generate abigen
-$ yarn truffle compile
-	yarn truffle run abigen
+5. Compile contract and generate abigen
+$ truffle compile
+	if [ ! -d abigenBindings ]; then mkdir abigenBindings ; fi
+	truffle run abigen
 	if [ ! -d bindings ]; then mkdir bindings ; fi
 	if [ ! -d bindings/tokena ]; then mkdir bindings/tokena ; fi
-	abigen --abi=abigenBindings/abi/TokenA.abi --bin=abigenBindings/bin/TokenA.bin --pkg tokena --out bindings/tokena/bindings.go
+	./abigen --abi=abigenBindings/abi/TokenA.abi --bin=abigenBindings/bin/TokenA.bin --pkg tokena --out bindings/tokena/bindings.go
 	if [ ! -d bindings/tokenb ]; then mkdir bindings/tokenb ; fi
-	abigen --abi=abigenBindings/abi/TokenB.abi --bin=abigenBindings/bin/TokenB.bin --pkg tokenb --out bindings/tokenb/bindings.go
+	./abigen --abi=abigenBindings/abi/TokenB.abi --bin=abigenBindings/bin/TokenB.bin --pkg tokenb --out bindings/tokenb/bindings.go
 	if [ ! -d bindings/thepool ]; then mkdir bindings/thepool ; fi
-	abigen --abi=abigenBindings/abi/ThePool.abi --bin=abigenBindings/bin/ThePool.bin --pkg thepool --out bindings/thepool/bindings.go
+	./abigen --abi=abigenBindings/abi/ThePool.abi --bin=abigenBindings/bin/ThePool.bin --pkg thepool --out bindings/thepool/bindings.go
 
-4. Init go module
+6. Init go module
 $ go mod init github.com/3dsinteractive/fullstackblockchain
   go get
 
-5. Run go project to deploy contract (Notice NETWORK=bsctest)
+7. Run go project to deploy contract (Notice NETWORK=bsctest)
 $ NETWORK=bsctest \
 	SERVICE_ID=deployer \
 	SEED_GANACHE="unveil wave nuclear maple strike prepare luxury story brush knife senior modify" \
@@ -33,6 +40,6 @@ $ NETWORK=bsctest \
 	SEED_BSCMAIN="" \
 	go run .
 
-6. If you do not have a BNB just Get BNB faucets here by entering your public wallet address belows
+8. If you do not have a BNB just Get BNB faucets here by entering your public wallet address belows
 https://testnet.binance.org/faucet-smart
 Your public wallet address is: 0x951EC8d446A56D4aC9820dd00705839498f7B6AD
