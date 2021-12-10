@@ -1,6 +1,12 @@
 ## 4.04-deploy-bsc-testnet
 
 1. Open 4.04-deploy-bsc-testnet
+Type the following command into console to use node version 16.13.1
+$ source ~/.bash_profile
+nvm use v16.13.1
+node -v
+
+v16.13.1
 
 2. Install dependency
 $ yarn
