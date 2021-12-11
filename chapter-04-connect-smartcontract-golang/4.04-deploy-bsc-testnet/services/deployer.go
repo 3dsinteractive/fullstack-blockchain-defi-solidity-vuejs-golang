@@ -27,19 +27,23 @@ func (svc *Deployer) Deploy() error {
 		return utils.LogE(err)
 	}
 
-	tokenAAddr, _, _, err := tokena.DeployTokena(utils.MySendOpt(client, network), client)
+	tokenAAddr, tokenATx, _, err := tokena.DeployTokena(utils.MySendOpt(client, network), client)
 	if err != nil {
 		return utils.LogE(err)
 	}
-	tokenBAddr, _, _, err := tokenb.DeployTokenb(utils.MySendOpt(client, network), client)
+	tokenBAddr, tokenBTx, _, err := tokenb.DeployTokenb(utils.MySendOpt(client, network), client)
 	if err != nil {
 		return utils.LogE(err)
 	}
-	thePoolAddr, _, _, err := thepool.DeployThepool(utils.MySendOpt(client, network), client, tokenAAddr, tokenBAddr)
+	thePoolAddr, thePoolTx, _, err := thepool.DeployThepool(utils.MySendOpt(client, network), client, tokenAAddr, tokenBAddr)
 	if err != nil {
 		return utils.LogE(err)
 	}
 
+	utils.Print(`TOKENA_TX=%s \`, tokenATx.Hash().Hex())
+	utils.Print(`TOKENB_TX=%s \`, tokenBTx.Hash().Hex())
+	utils.Print(`THEPOOL_TX=%s \`, thePoolTx.Hash().Hex())
+	utils.Print("-------------")
 	utils.Print(`TOKENA_ADDR=%s \`, tokenAAddr.String())
 	utils.Print(`TOKENB_ADDR=%s \`, tokenBAddr.String())
 	utils.Print(`THEPOOL_ADDR=%s \`, thePoolAddr.String())
