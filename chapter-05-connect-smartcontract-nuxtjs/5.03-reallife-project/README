@@ -1,6 +1,6 @@
-## 5.02-login-with-metamask
+## 5.03-reallife-project
 
-1. Open 5.02-login-with-metamask in VSCode
+1. Open 5.03-reallife-project in VSCode
 $ source ~/.bash_profile
 nvm use v16.13.1
 node -v
