@@ -43,6 +43,17 @@
           <a class="button-item" @click="onUpdateWatchValue">Update Watch Value</a>
         </div>
       </div>
+
+      <div class="tutorial-item">
+        <h1>13. Form</h1>
+        <h2>{{submitResult}}</h2>
+        <v-form @submit.prevent="validate(onSubmit, onTransform)" ref="form">
+          <Field v-model="form" :options="formFields" />
+          <div class="buttons">
+            <ButtonPrimary class="button-item">Submit</ButtonPrimary>
+          </div>
+        </v-form>
+      </div>
     </div>
   </div>
 </template>
@@ -51,11 +62,14 @@
 // 1. Import list
 // 1.1 Import from root ~ of project
 import { BaseApp } from '~/core/BaseApp'
+import { BaseForm } from '~/core/BaseForm'
 // 1.2 Import from library (eg. node_modules)
 import { Component, Watch } from 'vue-property-decorator'
 // 1.3 Import from relative path (eg ./ ../)
 import SubTitle from './SubTitle.vue'
 import SubTitleVuex from './SubTitleVuex.vue'
+import { IFormOption, INPUT_TYPES } from '~/components/form/FormTypes'
+import RuleHelper from '~/utils/RuleHelper'
 
 
 // 2. Component annotation
@@ -67,12 +81,13 @@ import SubTitleVuex from './SubTitleVuex.vue'
 })
 // 3. Class declaration and extends
 //    Class must be export to be used from caller
-export default class Home extends BaseApp {
+export default class Home extends BaseForm<MemberForm> {
 
   // 4. Types class instance scope
   theString: string = 'This is string'
   theNumber: number = 100
   theBoolean: boolean = true
+  theStringArr: string[] = []
 
   // 4.2 Static Variable will be access via class name
   static theStaticString: string = ''
@@ -83,6 +98,7 @@ export default class Home extends BaseApp {
     this.theString = 'New string'
     this.theNumber = 200
     this.theBoolean = false
+    this.theStringArr.push('New string')
 
     Home.theStaticString = 'New static string'
 
@@ -211,6 +227,45 @@ export default class Home extends BaseApp {
       this.watchValue = 'Watch value'
     }
   }
+
+  // 13. Form
+  form_name: string = 'member_form'
+  submitResult: string = ''
+
+  get formFields(): IFormOption[] {
+    return [
+      {
+        type: INPUT_TYPES.TEXT,
+        col: '12',
+        props: {
+          name: 'firstname',
+          label: 'Firstname',
+          rules: [RuleHelper.required],
+        }
+      },
+      {
+        type: INPUT_TYPES.TEXT,
+        col: '12',
+        props: {
+          name: 'email',
+          label: 'Email',
+          rules: [RuleHelper.required],
+        }
+      },
+    ]
+  }
+  onSubmit(val: MemberForm) {
+    this.submitResult = JSON.stringify(val)
+  }
+  onTransform(val: any): any {
+    val['created'] = new Date()
+    return val
+  }
+}
+
+interface MemberForm {
+  firstname: string
+  email: string
 }
 </script>
 
