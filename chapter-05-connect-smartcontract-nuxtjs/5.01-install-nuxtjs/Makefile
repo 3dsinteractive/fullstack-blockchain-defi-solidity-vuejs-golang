@@ -3,7 +3,7 @@ default:
 node-version:
 	node -v
 yarn-init:
-	yarn add -D truffle
+	yarn add -D ganache-cli
 	yarn add -D typechain
 	yarn add -D @typechain/web3-v1
 	yarn add -D jest @types/jest

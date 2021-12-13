@@ -6,7 +6,7 @@ start-ganache:
 	ganache-cli --verbose --mnemonic "unveil wave nuclear maple strike prepare luxury story brush knife senior modify"
 yarn-init:
 	yarn global add ganache-cli
-	yarn add -D truffle 
+	yarn add -D ganache-cli 
 	yarn add -D @chainsafe/truffle-plugin-abigen 
 	yarn add -D @openzeppelin/contracts
 go-init:
