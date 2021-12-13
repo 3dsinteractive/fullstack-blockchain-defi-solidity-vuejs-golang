@@ -16,7 +16,9 @@ import { BaseApp } from '~/core/BaseApp'
 import { Component } from 'vue-property-decorator'
 
 @Component({
-  components: { },
+  // Use fetch when need to load state at server side into Vuex
+  // async fetch (ctx: any) { },
+  components: {}
 })
 export default class Page2Page extends BaseApp {
 }
