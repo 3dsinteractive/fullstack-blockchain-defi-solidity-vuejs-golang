@@ -16,3 +16,5 @@ go.sum
 dockers
 access.log
 error.log
+.yarn
+.yarnrc.yml
