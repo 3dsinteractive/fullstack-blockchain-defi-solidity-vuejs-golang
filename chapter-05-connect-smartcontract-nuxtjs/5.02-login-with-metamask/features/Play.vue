@@ -53,20 +53,25 @@ export default class Play extends BaseForm<any> {
   @Provide('form_name') form_name = 'play_form'
 
   created() {
+    // 1. Try to switch chain to the chainId receive from configuration (nuxt.config.js)
     const switchChain = async () => {
       await this.switchChain(getChainId())
     }
+    // 2. Load wallet if user already login (send reconnect: true)
     this.walletLoader(switchChain, switchChain).call({ reconnect: true })
   }
 
+  // 3. When click add chain
   onAddChain() {
     this.addChain(getChainId())
   }
 
+  // 4. When click login with Metamask
   onLogin() {
     this.showLoginDialog()
   }
 
+  // 5. When click mint token A
   onMintTokenA() {
     if (!this.isLogin) {
       this.showLoginDialog()
@@ -78,6 +83,7 @@ export default class Play extends BaseForm<any> {
     this.mintTokenA(amount, this.endTransaction, this.endTransaction).call()
   }
 
+  // 6. When click mint token B
   onMintTokenB() {
     if (!this.isLogin) {
       this.showLoginDialog()
@@ -97,6 +103,7 @@ export default class Play extends BaseForm<any> {
     this.isLoading = false
   }
 
+  // 7. When click Print summary
   async onPrintSummary() {
     console.log('1')
     const wg = new WaitGroup()

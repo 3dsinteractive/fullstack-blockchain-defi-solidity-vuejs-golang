@@ -136,6 +136,7 @@ export class BaseApp extends Base {
     }) as any as TokenB
   }
 
+  // addChain will send RPC wallet_addEthereumChain call to provider
   async addChain(chainId: string) {
     const provider = this.$web3.currentProvider as any
     if (chainId == '0x61') {
@@ -157,6 +158,7 @@ export class BaseApp extends Base {
     }
   }
 
+  // switchChain will send RPC wallet_switchEthereumChain call to provider
   async switchChain(chainId: string) {
     const provider = this.$web3.currentProvider as any
     await provider.sendAsync({

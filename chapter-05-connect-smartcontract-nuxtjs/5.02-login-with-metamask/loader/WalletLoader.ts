@@ -35,6 +35,7 @@ export class WalletLoader<T = any> extends BaseLoader<T> {
 
       let accounts: any = null
       if (web3 && opts && opts.reconnect) {
+        // When reconnect, we will refresh the accounts, if we already login
         accounts = await web3.eth.getAccounts()
         if (accounts.length > 0) {
           // eth_requestAccounts will popup metamask login
