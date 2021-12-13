@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{subTitle}}</h2>
+    <h2>{{vuexLoader.callItem.name}}</h2>
   </div>
 </template>
 
@@ -9,8 +9,7 @@ import { BaseApp } from '~/core/BaseApp'
 import { Component, Prop } from 'vue-property-decorator'
 
 @Component({})
-export default class SubTitle extends BaseApp {
-  @Prop(String) readonly subTitle!: string
+export default class SubTitleVuex extends BaseApp {
 }
 </script>
 
