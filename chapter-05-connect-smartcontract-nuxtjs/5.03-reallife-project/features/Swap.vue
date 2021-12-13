@@ -18,6 +18,9 @@
             </div>
           </v-form>
         </div>
+        <div class="footer">
+          <NuxtLink to="/play">Go to Play</NuxtLink>
+        </div>
       </div>
     </div>
   </div>
@@ -45,7 +48,7 @@ export default class Swap extends BaseForm<SwapForm> {
   checkAllowance: () => void
   updateQuotePrice: () => void
 
-  // 1. _debounce checkAllowance and updateQuotePrice for 300ms to not flood the RPC call
+  // 1. _debounce (1.1) checkAllowance and (1.2) updateQuotePrice for 300ms to not flood the RPC call
   created() {
     this.checkAllowance = _debounce(() => {
       this._onCheckAllowance()
@@ -62,9 +65,12 @@ export default class Swap extends BaseForm<SwapForm> {
     this.walletLoader(switchChain, switchChain).call({ reconnect: true })
   }
 
-  // 2. Watch form changed, to update amount of tokenB by tokenA input
+  // 2. Watch form changed, to checkAllowance and updateQuotePrice as soon as number of tokenA has change
   @Watch('form', { deep: true })
-  onFormUpdated() {
+  onFormUpdated(oldVal: SwapForm, newVal: SwapForm) {
+    if (oldVal.fromAmount == newVal.fromAmount) {
+      return
+    }
     this.checkAllowance()
     this.updateQuotePrice()
   }
@@ -280,6 +286,10 @@ interface SwapForm {
       }
     }
   }
+}
+
+.footer {
+  margin-top: 100px;
 }
 @media (min-width: 800px) {
 .content {

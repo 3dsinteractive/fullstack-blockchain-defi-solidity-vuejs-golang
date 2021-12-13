@@ -40,6 +40,9 @@
         <ButtonPrimary type="button" @click="onPrintSummary">11. Print Summary</ButtonPrimary>
       </div>
     </div>
+    <div class="footer">
+      <NuxtLink to="/">Go to Swap</NuxtLink>
+    </div>
   </div>
 </template>
 
@@ -212,5 +215,9 @@ export default class Play extends BaseForm<any> {
   .form-item {
     padding: 5px;
   }
+}
+
+.footer {
+  margin-top: 100px;
 }
 </style>
